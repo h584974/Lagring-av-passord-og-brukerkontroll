@@ -17,11 +17,11 @@ public class AktivBruker {
 		Bruker b = a.finnBruker(brukernavn);
 		
 		if(bruker == null) {
-			System.out.println("Bruker ikke funnet");
+			System.out.println("Bruker ikke funnet"); //Midlertidig
 			return false;
 		}
 		else if(erInnlogget()) {
-			System.out.println("Allerede innlogget på en bruker");
+			System.out.println("Allerede innlogget på en bruker"); //Midlertidig
 			return false;
 		}
 		else if(bruker.getSaltet_passord_hash().equals(saltet_passord_hash)) {
@@ -29,7 +29,7 @@ public class AktivBruker {
 			return true;
 		}
 		else {
-			System.out.println("Feil passord oppgitt");
+			System.out.println("Feil passord oppgitt"); //Midlertidig
 			return false;
 		}
 	}

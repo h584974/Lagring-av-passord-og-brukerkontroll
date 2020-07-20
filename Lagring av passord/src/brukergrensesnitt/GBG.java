@@ -8,8 +8,18 @@ import java.awt.Label;
 
 public class GBG {
 	
+	private Frame frame;
+	
 	public GBG() {
-		
+		frame = new Frame();
+	}
+	
+	public void wtf() {
+		frame.add(new TextField());
+	}
+	
+	public void wtf2() {
+		frame.setEnabled(true);
 	}
 
 }
