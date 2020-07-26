@@ -11,6 +11,7 @@ public class Bruker {
 	
 	@Id
 	private String brukernavn;
+	
 	private String saltet_passord_hash;
 	private String salt;
 	
@@ -19,7 +20,7 @@ public class Bruker {
 	public Bruker(String brukernavn, String passord) {
 		this.brukernavn = brukernavn;
 		salt = genererSalt();
-		saltet_passord_hash = hashSaltetPassord(passord + salt);
+		saltet_passord_hash = PassordHash.hashSaltetPassord(passord + salt);
 	}
 	
 	public String getBrukernavn() {
@@ -53,10 +54,6 @@ public class Bruker {
 			salt += (char)(r.nextInt(26) + 'a');
 		}
 		return salt;
-	}
-	
-	private static String hashSaltetPassord(String saltetPassord) {
-		return org.apache.commons.codec.digest.DigestUtils.sha256Hex(saltetPassord);
 	}
 	
 }

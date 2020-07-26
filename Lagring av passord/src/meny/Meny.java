@@ -10,8 +10,8 @@ public class Meny {
 		b = new AktivBruker();
 	}
 	
-	public boolean login(String brukernavn, String saltet_passord_hash) {
-		return b.login(brukernavn, saltet_passord_hash);
+	public boolean login(String brukernavn, String passord) {
+		return b.login(brukernavn, passord);
 	}
 
 }

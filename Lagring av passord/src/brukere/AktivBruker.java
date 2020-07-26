@@ -12,7 +12,7 @@ public class AktivBruker {
 		return bruker != null;
 	}
 	
-	public boolean login(String brukernavn, String saltet_passord_hash) {
+	public boolean login(String brukernavn, String passord) {
 		BrukerEAO a = new BrukerEAO();
 		Bruker b = a.finnBruker(brukernavn);
 		
@@ -24,7 +24,7 @@ public class AktivBruker {
 			System.out.println("Allerede innlogget på en bruker"); //Midlertidig
 			return false;
 		}
-		else if(bruker.getSaltet_passord_hash().equals(saltet_passord_hash)) {
+		else if(bruker.getSaltet_passord_hash().equals(PassordHash.hashSaltetPassord(passord + bruker.getSalt()))) {
 			bruker = b;
 			return true;
 		}

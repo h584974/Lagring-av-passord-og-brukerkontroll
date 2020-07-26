@@ -28,5 +28,28 @@ public class BrukerEAO {
 		
 		return bruker;
 	}
+	
+	public boolean lagreBruker(Bruker bruker) {
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		boolean lagret = false;
+		
+		try {
+			tx.begin();
+			em.persist(bruker);
+			tx.commit();
+			lagret = true;
+		}
+		catch (Throwable e) {
+            e.printStackTrace();
+            if(tx.isActive()) {
+            	tx.rollback();
+            }
+        } 
+		finally {
+			em.close();
+		}
+		return lagret;
+	}
 
 }
