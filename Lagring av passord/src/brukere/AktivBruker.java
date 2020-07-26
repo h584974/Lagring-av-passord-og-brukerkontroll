@@ -15,8 +15,9 @@ public class AktivBruker {
 	public boolean login(String brukernavn, String passord) {
 		BrukerEAO a = new BrukerEAO();
 		Bruker b = a.finnBruker(brukernavn);
+
 		
-		if(bruker == null) {
+		if(b == null) {
 			System.out.println("Bruker ikke funnet"); //Midlertidig
 			return false;
 		}
@@ -24,7 +25,7 @@ public class AktivBruker {
 			System.out.println("Allerede innlogget på en bruker"); //Midlertidig
 			return false;
 		}
-		else if(bruker.getSaltet_passord_hash().equals(PassordHash.hashSaltetPassord(passord + bruker.getSalt()))) {
+		else if(b.getSaltet_passord_hash().equals(PassordHash.hashSaltetPassord(passord + b.getSalt()))) {
 			bruker = b;
 			return true;
 		}
