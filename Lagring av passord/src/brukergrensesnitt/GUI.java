@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -19,25 +20,41 @@ public class GUI implements ActionListener {
 	private Meny meny;
 	
 	public GUI() {
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		userText = new JTextField();
-		passwordText = new JPasswordField();
-		JButton button1 = new JButton("Login");
-		JButton button2 = new JButton("Opprett profil");
 		meny = new Meny();
 		
-		button1.addActionListener(this);
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
 		
-		panel.setBorder(BorderFactory.createEmptyBorder(100, 100, 100, 100));
-		panel.setLayout(new GridLayout(0,1));
-		panel.add(userText);
-		panel.add(passwordText);
-		panel.add(button1);
-		
+		JFrame frame = new JFrame();
 		frame.add(panel, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Login");
+		
+		JLabel userLabel = new JLabel("brukernavn:");
+		userLabel.setBounds(10, 20, 80, 25);
+		panel.add(userLabel);
+		
+		userText = new JTextField();
+		userText.setBounds(100, 20, 165, 25);
+		panel.add(userText);
+		
+		JLabel passwordLabel = new JLabel("passord:");
+		passwordLabel.setBounds(10, 50, 80, 25);
+		panel.add(passwordLabel);
+		
+		passwordText = new JPasswordField();
+		passwordText.setBounds(100, 50, 165, 25);
+		panel.add(passwordText);
+		
+		JButton loginButton = new JButton("Login");
+		loginButton.setBounds(10, 80, 80, 25);
+		loginButton.addActionListener(this);
+		panel.add(loginButton);
+		
+		JButton registerProfileButton = new JButton("Opprett profil");
+		registerProfileButton.setBounds(100, 80, 120, 25);
+		panel.add(registerProfileButton);
+		
 		frame.pack();
 		frame.setVisible(true);
 	}
