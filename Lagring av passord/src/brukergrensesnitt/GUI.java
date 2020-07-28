@@ -18,10 +18,11 @@ public class GUI implements ActionListener {
 	private JTextField userText;
 	private JTextField passwordText;
 	private Meny meny;
+	private JLabel loggedInLabel;
 	
 	public GUI() {
 		meny = new Meny();
-		
+
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		
@@ -55,6 +56,10 @@ public class GUI implements ActionListener {
 		registerProfileButton.setBounds(100, 80, 120, 25);
 		panel.add(registerProfileButton);
 		
+		loggedInLabel = new JLabel("Ikke innlogget");
+		loggedInLabel.setBounds(10, 120, 200, 25);
+		panel.add(loggedInLabel);
+		
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -63,6 +68,7 @@ public class GUI implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(meny.login(userText.getText(), passwordText.getText())) {
 			System.out.println("Innlogging vellykket");
+			loggedInLabel.setText("Innlogget som: " + userText.getText());
 		}
 		else {
 			System.out.println("Innlogging feilet");
