@@ -19,6 +19,7 @@ public class GUI implements ActionListener {
 	private JTextField passwordText;
 	private Meny meny;
 	private JLabel loggedInLabel;
+	private OpprettProfil op;
 	
 	public GUI() {
 		meny = new Meny();
@@ -27,7 +28,7 @@ public class GUI implements ActionListener {
 		panel.setLayout(null);
 		
 		JFrame frame = new JFrame();
-		frame.setSize(300, 200);
+		frame.setSize(350, 200);
 		frame.add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Login");
@@ -54,13 +55,16 @@ public class GUI implements ActionListener {
 		loginButton.addActionListener(this);
 		panel.add(loginButton);
 		
+		loggedInLabel = new JLabel("Ikke innlogget");
+		loggedInLabel.setBounds(10, 120, 400, 25);
+		panel.add(loggedInLabel);
+		
+		op = new OpprettProfil(userText, passwordText, loggedInLabel, meny);
+		
 		JButton registerProfileButton = new JButton("Opprett profil");
 		registerProfileButton.setBounds(100, 80, 120, 25);
+		registerProfileButton.addActionListener(op);
 		panel.add(registerProfileButton);
-		
-		loggedInLabel = new JLabel("Ikke innlogget");
-		loggedInLabel.setBounds(10, 120, 200, 25);
-		panel.add(loggedInLabel);
 		
 		frame.setVisible(true);
 	}
