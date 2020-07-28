@@ -1,6 +1,6 @@
 package meny;
 
-import brukere.AktivBruker;
+import bruker.AktivBruker;
 
 public class Meny {
 	

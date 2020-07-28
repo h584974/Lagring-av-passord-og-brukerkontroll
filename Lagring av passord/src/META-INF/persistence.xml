@@ -4,7 +4,7 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="passordPersistenceUnit" transaction-type="RESOURCE_LOCAL">
 	
-		<class>brukere.Bruker</class>
+		<class>bruker.Bruker</class>
 		
 		<properties>
 		    <!--  Generelle JPA properties -->

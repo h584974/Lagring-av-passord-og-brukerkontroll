@@ -1,4 +1,4 @@
-package brukere;
+package bruker;
 
 public class PassordHash {
 	

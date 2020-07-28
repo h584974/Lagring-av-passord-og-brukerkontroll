@@ -1,4 +1,4 @@
-package brukere;
+package bruker;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

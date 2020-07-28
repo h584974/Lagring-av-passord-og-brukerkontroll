@@ -1,6 +1,6 @@
 package klient;
 
-import brukere.*;
+import bruker.*;
 import brukergrensesnitt.GUI;
 
 public class Klient {

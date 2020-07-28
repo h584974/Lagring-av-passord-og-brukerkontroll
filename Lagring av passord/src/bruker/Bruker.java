@@ -1,4 +1,4 @@
-package brukere;
+package bruker;
 
 import java.util.Random;
 import javax.persistence.Entity;
