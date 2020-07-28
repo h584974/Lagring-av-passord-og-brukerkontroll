@@ -27,9 +27,11 @@ public class GUI implements ActionListener {
 		panel.setLayout(null);
 		
 		JFrame frame = new JFrame();
-		frame.add(panel, BorderLayout.CENTER);
+		frame.setSize(300, 200);
+		frame.add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Login");
+		frame.setLocation(750, 500);
 		
 		JLabel userLabel = new JLabel("brukernavn:");
 		userLabel.setBounds(10, 20, 80, 25);
@@ -60,7 +62,6 @@ public class GUI implements ActionListener {
 		loggedInLabel.setBounds(10, 120, 200, 25);
 		panel.add(loggedInLabel);
 		
-		frame.pack();
 		frame.setVisible(true);
 	}
 
